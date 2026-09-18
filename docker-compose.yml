@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: energy-ledger
+    restart: unless-stopped
+    ports:
+      - "8090:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:ro
