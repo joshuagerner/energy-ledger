@@ -4,10 +4,14 @@ Static site served by nginx, deployed by `git pull`.
 
 ## Deployment
 
-`docker-compose.yml` mounts `./html` read-only into the nginx container.
+The `energy-ledger` service is defined as a block in the main stack at
+`/home/docker/docker-compose.yaml` (root-owned; not part of this repo),
+on the `npm_proxy` network, port 8090, mounting this repo's `./html`
+directory read-only by absolute path (`/home/josh/energy-ledger/html`).
 nginx serves files directly from disk, so a `git pull` on this repo is
 the entire deploy — no container restart, no rebuild. The container
-only needs to be (re)started if `docker-compose.yml` itself changes.
+only needs touching if the service block itself changes (image version,
+port, mount path).
 
 ## Content ownership
 
