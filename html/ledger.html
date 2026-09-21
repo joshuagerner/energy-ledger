@@ -8,8 +8,8 @@
     --accent:#B8632A; --accent-ink:#FFFFFF;
     --good:#2E9E5B; --warning:#C98A1E; --critical:#C4453E;
     --good-bg:#E7F3EC; --warning-bg:#FBF1DF; --critical-bg:#FAE7E5;
-    --cat-aqua:#1B9C88; --cat-office:#4655D8; --cat-ext:#A83E88; --cat-lr:#D9553A; --cat-util:#3A6BB0;
-    --cat-aqua-bg:#E4F5F2; --cat-office-bg:#E9EAFB; --cat-ext-bg:#F6E8F1; --cat-lr-bg:#FBEAE5; --cat-util-bg:#E7EEF8;
+    --cat-aqua:#1B9C88; --cat-office:#4655D8; --cat-ext:#A83E88; --cat-lr:#D9553A; --cat-util:#3A6BB0; --cat-vue:#7A5CC7;
+    --cat-aqua-bg:#E4F5F2; --cat-office-bg:#E9EAFB; --cat-ext-bg:#F6E8F1; --cat-lr-bg:#FBEAE5; --cat-util-bg:#E7EEF8; --cat-vue-bg:#EEE9FA;
     --shadow: 0 1px 2px rgba(34,31,24,.06), 0 4px 16px rgba(34,31,24,.05);
   }
   @media (prefers-color-scheme: dark){
@@ -19,8 +19,8 @@
       --accent:#D98A4E; --accent-ink:#1A1611;
       --good:#4CAF74; --warning:#E0A83D; --critical:#E06661;
       --good-bg:#1E2E22; --warning-bg:#332813; --critical-bg:#35201D;
-      --cat-aqua:#22A48F; --cat-office:#6D7BEA; --cat-ext:#C158A0; --cat-lr:#E06A3A; --cat-util:#5488C7;
-      --cat-aqua-bg:#152825; --cat-office-bg:#1F2136; --cat-ext-bg:#2C1D28; --cat-lr-bg:#2E2019; --cat-util-bg:#1B2531;
+      --cat-aqua:#22A48F; --cat-office:#6D7BEA; --cat-ext:#C158A0; --cat-lr:#E06A3A; --cat-util:#5488C7; --cat-vue:#9C82E0;
+      --cat-aqua-bg:#152825; --cat-office-bg:#1F2136; --cat-ext-bg:#2C1D28; --cat-lr-bg:#2E2019; --cat-util-bg:#1B2531; --cat-vue-bg:#241F36;
       --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 20px rgba(0,0,0,.35);
     }
   }
@@ -30,8 +30,8 @@
     --accent:#D98A4E; --accent-ink:#1A1611;
     --good:#4CAF74; --warning:#E0A83D; --critical:#E06661;
     --good-bg:#1E2E22; --warning-bg:#332813; --critical-bg:#35201D;
-    --cat-aqua:#22A48F; --cat-office:#6D7BEA; --cat-ext:#C158A0; --cat-lr:#E06A3A; --cat-util:#5488C7;
-    --cat-aqua-bg:#152825; --cat-office-bg:#1F2136; --cat-ext-bg:#2C1D28; --cat-lr-bg:#2E2019; --cat-util-bg:#1B2531;
+    --cat-aqua:#22A48F; --cat-office:#6D7BEA; --cat-ext:#C158A0; --cat-lr:#E06A3A; --cat-util:#5488C7; --cat-vue:#9C82E0;
+    --cat-aqua-bg:#152825; --cat-office-bg:#1F2136; --cat-ext-bg:#2C1D28; --cat-lr-bg:#2E2019; --cat-util-bg:#1B2531; --cat-vue-bg:#241F36;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 20px rgba(0,0,0,.35);
   }
 
@@ -136,6 +136,15 @@
   .dev-nums .secondary{ font-size:.72rem; color:var(--ink-mute); }
   .cat-note{ font-size:.75rem; color:var(--ink-mute); padding:8px 18px 14px; border-top:1px dashed var(--border); margin-top:4px; }
 
+  /* circuit table (Emporia) */
+  .circuit-table{ width:100%; border-collapse:collapse; font-size:.84rem; }
+  .circuit-table th{ text-align:left; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-mute); font-weight:600; padding:8px 10px; border-bottom:1px solid var(--border); }
+  .circuit-table td{ padding:8px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .circuit-table tr:last-child td{ border-bottom:none; }
+  .circuit-table td.num, .circuit-table th.num{ text-align:right; font-family:"IBM Plex Mono", monospace; }
+  .circuit-table .chid{ color:var(--ink-mute); font-size:.76rem; font-family:"IBM Plex Mono", monospace; }
+  .circuit-table tr.unident td{ color:var(--ink-mute); font-style:italic; }
+
   /* gaps list */
   .gaps-list{ display:flex; flex-direction:column; gap:10px; }
   .gap-item{ display:flex; gap:12px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:13px 16px; box-shadow:var(--shadow); }
@@ -153,7 +162,7 @@
     <p>Monitored device power vs. NYSEG account &mdash; cost &amp; coverage snapshot</p>
   </div>
   <div class="meta">
-    <div>Snapshot as of <strong style="color:var(--ink-2)">Sept 10, 2026</strong></div>
+    <div>Snapshot as of <strong style="color:var(--ink-2)">Sept 21, 2026</strong></div>
     <div class="acct">Refreshed manually &mdash; ask Claude to update after each Green Button export</div>
   </div>
 </header>
@@ -179,12 +188,12 @@
     <div class="tile">
       <div class="label">Monitored devices, est. pace</div>
       <div class="value num">&asymp;$60<span style="font-size:.9rem;color:var(--ink-mute)">/mo</span></div>
-      <div class="note">&asymp;239 kWh at your real blended rate, $0.251/kWh avg</div>
+      <div class="note">&asymp;239 kWh at your real blended rate, $0.251/kWh avg &mdash; individually-metered plugs/strips only, see Whole-home section for the new Emporia Vue numbers</div>
     </div>
     <div class="tile">
       <div class="label">Share of Sep electric bill explained</div>
       <div class="value num">&asymp;16%</div>
-      <div class="note" style="color:var(--critical)">&asymp;84% of your electric cost isn&rsquo;t visible in HA yet</div>
+      <div class="note" style="color:var(--critical)">&asymp;84% unaccounted <strong>by individually-metered smart plugs specifically</strong> &mdash; this framing is now stale for the whole panel, since Emporia Vue's 16 branch circuits cover far more than that on their own. See the new Whole-home cross-check below.</div>
     </div>
   </div>
 </section>
@@ -280,14 +289,14 @@
         </div>
       </div>
     </div>
-    <p style="font-size:.78rem;color:var(--ink-mute);margin:14px 0 0;">A full year now on record: electricity actually <strong>peaks in summer</strong> (Jul&ndash;Aug, ~1,720&ndash;1,730 kWh) while gas heat peaks in winter (Feb, $287.83) &mdash; two separate seasonal loads, neither of which HA's device monitoring currently sees end-to-end. A Green Button export now confirms Aug 2025 fits the same pattern at 1,454 kWh &mdash; the summer peak isn't a one-year fluke. September also brought the <strong>cheapest rate of the year</strong>: NYSEG's supply price dropped to $0.0742/kWh, pulling the total per-kWh cost to $0.2103 &mdash; below every other month on file.</p>
+    <p style="font-size:.78rem;color:var(--ink-mute);margin:14px 0 0;">A full year now on record: electricity actually <strong>peaks in summer</strong> (Jul&ndash;Aug, ~1,720&ndash;1,730 kWh) while gas heat peaks in winter (Feb, $287.83) &mdash; two separate seasonal loads. Since Sept 17&ndash;20, 2026 the Emporia Vue whole-home monitor confirms the likely source: the <strong>Living Room AC</strong> and <strong>Addition AC</strong> branch circuits, both now identified below (see Gaps &amp; recommendations for the updated note).</p>
   </div>
 </section>
 
 <section>
   <div class="section-head">
     <h2>The gap</h2>
-    <span class="sub">Estimated monthly pace vs. your latest <strong>electric-only</strong> cost (gas heat excluded &mdash; see note)</span>
+    <span class="sub">Estimated monthly pace of individually-metered plugs/strips vs. your latest <strong>electric-only</strong> cost (gas heat excluded &mdash; see note)</span>
   </div>
   <div class="gap-card">
     <div class="gap-track">
@@ -295,10 +304,102 @@
       <div class="gap-seg unknown" style="width:84%">84% unaccounted</div>
     </div>
     <div class="gap-foot">
-      <span>&asymp;$60/mo across every monitored device</span>
+      <span>&asymp;$60/mo across every individually-metered device</span>
       <span>$366.34 electric-only cost (Sep, 1,742 kWh)</span>
     </div>
-    <p style="font-size:.78rem;color:var(--ink-mute);margin:12px 0 0;">Your NYSEG bill is really two utilities on one statement. Gas heat alone ran $51&ndash;$288/mo across these 14 bills &mdash; it&rsquo;s not part of this comparison because no HA device here could ever measure it. This gap is electric only.</p>
+    <p style="font-size:.78rem;color:var(--ink-mute);margin:12px 0 0;">Your NYSEG bill is really two utilities on one statement. Gas heat alone ran $51&ndash;$288/mo across these 14 bills &mdash; it&rsquo;s not part of this comparison because no HA device here could ever measure it. This gap is electric only. This percentage covers only the individually-metered smart plugs/strips catalogued below &mdash; it deliberately does <strong>not</strong> fold in the Emporia Vue whole-home monitor. Emporia&rsquo;s branch circuits cover far more of the panel than these plugs do, but rather than replace this 16%/84% split with a single bigger number, Emporia is tracked as its own independent whole-home figure below &mdash; see Whole-home cross-check.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <h2>Whole-home &amp; branch-circuit monitoring (Emporia Vue)</h2>
+    <span class="sub">Added Sept 17, 2026 &mdash; 3 mains legs (Mains_C unused) + 16 branch-circuit CT clamps + a synthetic &ldquo;Balance&rdquo; sensor for the unmonitored remainder</span>
+  </div>
+  <div class="gap-card" style="margin-bottom:14px;">
+    <p style="font-size:.84rem;color:var(--ink-2);margin:0;line-height:1.5;">
+      This is a genuinely new capability: for the first time, HA can see <strong>every</strong> circuit in the panel, not just the handful of devices on smart plugs. 11 of 16 branch circuits are confirmed as of Sept 20, 2026, via live toggle tests or the homeowner's direct statements &mdash; never guessed from wattage alone. Live readings below are a snapshot (not a monthly kWh figure yet), so they show whether a circuit is currently drawing load, not its monthly cost. Circuit numbers below use the homeowner's own notation: <strong>Circuit N (HA Channel N+1)</strong> &mdash; Emporia's own CSV export numbers circuits 1&ndash;16, but Home Assistant's entity numbering is offset by one.
+    </p>
+  </div>
+
+  <div class="cat-card" style="margin-bottom:14px;">
+    <div class="cat-head" style="background:var(--cat-vue-bg)">
+      <div class="cat-head-top">
+        <h3 style="color:var(--cat-vue)">Whole-home cross-check &mdash; Emporia vs. NYSEG</h3>
+        <span class="cat-total num">tracked separately, by design</span>
+      </div>
+      <div class="cat-avg num">Two independently-sourced whole-home kWh figures, side by side &mdash; the point is to surface any gap between them, not to merge into one number</div>
+    </div>
+    <div class="cat-body" style="padding-top:10px;">
+      <div class="hero-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:4px;">
+        <div class="tile" style="box-shadow:none;border-color:var(--border);">
+          <div class="label">Emporia Main &mdash; this month</div>
+          <div class="value num">153.02 kWh</div>
+          <div class="note">Sept 1&ndash;21 (partial, calendar month) &middot; 16.09 kWh today alone &middot; live meter reading, Emporia has no $ pricing of its own</div>
+        </div>
+        <div class="tile" style="box-shadow:none;border-color:var(--border);">
+          <div class="label">NYSEG &mdash; last full billing cycle</div>
+          <div class="value num">1,742 kWh</div>
+          <div class="note">Sep 2026 bill, ~10th-to-10th cycle &middot; $366.34 electric-only &middot; $0.2103/kWh</div>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--ink-mute);margin:10px 0 0;line-height:1.5;">
+        <strong>No discrepancy % shown yet</strong> &mdash; these two numbers cover different, non-overlapping windows (a 21-day-old calendar month vs. NYSEG's ~31-day Aug 10&ndash;Sep 10 cycle), so dividing one by the other would be comparing apples to oranges, not measuring a real gap. The first honest cross-check lands once Emporia has a full calendar month in hand (Sept 30) or, better, once its numbers can be re-summed to match NYSEG's own billing-cycle boundaries. Until then this card exists to hold the two figures side by side, not to compute a verdict.
+      </p>
+      <p style="font-size:.78rem;color:var(--ink-mute);margin:10px 0 0;line-height:1.5;">
+        A third Emporia sensor, <strong>Balance</strong> (48.64 kWh this month, 268W live), reads as a net import/export delta rather than a simple remainder &mdash; its exact meaning for this account (solar/export accounting vs. something else) hasn&rsquo;t been confirmed with the homeowner yet, so it's noted here rather than folded into either total above.
+      </p>
+    </div>
+  </div>
+
+  <div class="cat-card" style="margin-bottom:14px;">
+    <div class="cat-head" style="background:var(--cat-vue-bg)">
+      <div class="cat-head-top">
+        <h3 style="color:var(--cat-vue)">Confirmed branch circuits</h3>
+        <span class="cat-total num">11 of 16 identified</span>
+      </div>
+      <div class="cat-avg num">Main (whole-home): 1,865 W live &middot; Balance (unmonitored remainder): 348 W live</div>
+    </div>
+    <div class="cat-body" style="padding-top:10px;">
+      <table class="circuit-table">
+        <thead><tr><th>Circuit</th><th>Identified as</th><th class="num">Live power</th></tr></thead>
+        <tbody>
+          <tr><td class="chid">Circuit 1 (HA 2)</td><td>Addition AC</td><td class="num">0.0 W</td></tr>
+          <tr><td class="chid">Circuit 3 (HA 4)</td><td>Living Room AC</td><td class="num">0.0 W</td></tr>
+          <tr><td class="chid">Circuit 4 (HA 5)</td><td>Kitchen Range</td><td class="num">0.0 W</td></tr>
+          <tr><td class="chid">Circuit 6 (HA 7)</td><td>Big Living Room <span class="chid">(105gal aquarium + other outlets)</span></td><td class="num">201.9 W</td></tr>
+          <tr><td class="chid">Circuit 8 (HA 9)</td><td>Guest Room Single Outlet by Door</td><td class="num">0.0 W</td></tr>
+          <tr><td class="chid">Circuit 9 (HA 10)</td><td>Kitchen Fridge</td><td class="num">107.1 W</td></tr>
+          <tr><td class="chid">Circuit 11 (HA 12)</td><td>Pendant Lights &amp; Main House Ceiling Lights</td><td class="num">316.7 W</td></tr>
+          <tr><td class="chid">Circuit 13 (HA 14)</td><td>Living Room Ecobee <span class="chid">(air handler/furnace, not the LR AC compressor)</span></td><td class="num">611.2 W</td></tr>
+          <tr><td class="chid">Circuit 14 (HA 15)</td><td>Washing Machine</td><td class="num">211.6 W</td></tr>
+          <tr><td class="chid">Circuit 15 (HA 16)</td><td>Kitchen Microwave</td><td class="num">0.0 W</td></tr>
+          <tr><td class="chid">Circuit 2 (HA 3)</td><td>Open 220V Circuit <span class="chid">(confirmed genuinely unused)</span></td><td class="num">0.0 W</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cat-note">Live snapshot taken Sept 20, 2026. Zero-watt readings above for AC/range/microwave circuits are expected &mdash; these are cyclical loads, not always-on, and were confirmed via toggle tests or direct statements rather than by catching them mid-draw.</div>
+  </div>
+  <div class="cat-card">
+    <div class="cat-head" style="background:var(--critical-bg)">
+      <div class="cat-head-top">
+        <h3 style="color:var(--critical)">Still unidentified</h3>
+        <span class="cat-total num">4 circuits, plus 1 homeless device</span>
+      </div>
+    </div>
+    <div class="cat-body" style="padding-top:10px;">
+      <table class="circuit-table">
+        <thead><tr><th>Circuit</th><th>Status</th><th class="num">Live power</th></tr></thead>
+        <tbody>
+          <tr class="unident"><td class="chid">Circuit 5 (HA 6)</td><td>Unidentified</td><td class="num">22.4 W</td></tr>
+          <tr class="unident"><td class="chid">Circuit 7 (HA 8)</td><td>Unidentified &mdash; flat 0.0 W, stale timestamp; likely spare/unused</td><td class="num">0.0 W</td></tr>
+          <tr class="unident"><td class="chid">Circuit 10 (HA 11)</td><td>Unidentified &mdash; unexplained ~1.7 kW spike around 6am on 9/18, lasting 4&ndash;5 min, plus a recurring ~20-min compressor-like cycle overnight 9/20&rarr;9/21; sump pump and Living Room AC both ruled out. A quiet Sept 21 snapshot read 6.5W avg / 2.99 kWh this month &mdash; that's an idle moment, not a resolution; confirmed still open by the homeowner</td><td class="num">6.5 W</td></tr>
+          <tr class="unident"><td class="chid">Circuit 12 (HA 13)</td><td>Unidentified &mdash; currently off at the panel per the homeowner</td><td class="num">0.0 W</td></tr>
+          <tr class="unident"><td class="chid">Circuit 16 (HA 17)</td><td>Flat 0.0 W, stale timestamp; likely spare/unused, same as Circuit 7</td><td class="num">0.0 W</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cat-note">The <strong>Chest Freezer &amp; Basement Refrigerator + PoE switch</strong> device (see Utility/garage/seasonal below) is not currently matched to any Emporia circuit &mdash; an earlier Circuit 13 (HA14) match was walked back after a clean toggle test showed the freezer's own smart-plug reading was unaffected by that breaker. It needs a fresh dedicated toggle test against the remaining unidentified circuits above.</div>
   </div>
 </section>
 
@@ -343,7 +444,7 @@
           <div class="dev-nums"><div class="primary num">12.36 kWh</div><div class="secondary">month-to-date</div></div>
         </div>
       </div>
-      <div class="cat-note">Your best-instrumented category &mdash; every outlet is separately metered. The 105-gallon tank is the exception; see Gaps.</div>
+      <div class="cat-note">Your best-instrumented category &mdash; every outlet is separately metered. The 105-gallon tank is the exception here (no per-outlet smart plug), but as of Sept 17, 2026 it sits on Emporia Circuit 6 (HA7, &ldquo;Big Living Room&rdquo;) along with other outlets on the same branch &mdash; see the Emporia Vue section above.</div>
     </div>
 
     <div class="cat-card">
@@ -413,6 +514,7 @@
           <div class="dev-nums"><div class="primary num">9.83 kWh</div><div class="secondary">month-to-date, &asymp;20W live</div></div>
         </div>
       </div>
+      <div class="cat-note">This existing Kasa strip is separate from the new Emporia-monitored Living Room AC and Living Room Ecobee branch circuits above &mdash; those cover the room's HVAC, this strip covers plugged-in gear.</div>
     </div>
 
     <div class="cat-card">
@@ -425,7 +527,7 @@
       </div>
       <div class="cat-body">
         <div class="dev-row">
-          <div class="dev-name">Chest Freezer &amp; Basement Refrigerator <span class="sub-of">+ small PoE switch (Shed Access Point + Ubiquiti Bullet camera) &mdash; one metered circuit, can&rsquo;t be split</span></div>
+          <div class="dev-name">Chest Freezer &amp; Basement Refrigerator <span class="sub-of">+ small PoE switch (Shed Access Point + Ubiquiti Bullet camera) &mdash; one metered circuit, can&rsquo;t be split; not yet matched to an Emporia branch circuit, see Whole-home section above</span></div>
           <div class="dev-nums"><div class="primary num">17.7 W</div><div class="secondary badge metered">live &mdash; just installed, no monthly figure yet</div></div>
         </div>
         <div class="dev-row">
@@ -437,7 +539,7 @@
           <div class="dev-nums"><div class="primary num">6.35 kWh</div><div class="secondary badge metered">last 30 days</div></div>
         </div>
         <div class="dev-row">
-          <div class="dev-name">Sump pump v.2</div>
+          <div class="dev-name">Sump pump v.2 <span class="sub-of">also ruled out as the source of Emporia Circuit 10&rsquo;s unexplained 6am spike, see Whole-home section above</span></div>
           <div class="dev-nums"><div class="primary num">0.76 kWh</div><div class="secondary badge metered">last 30 days</div></div>
         </div>
         <div class="dev-row">
@@ -453,7 +555,7 @@
           <div class="dev-nums"><div class="primary num">0.13 kWh</div><div class="secondary badge metered">last 30 days</div></div>
         </div>
       </div>
-      <div class="cat-note">Category total/avg above don&rsquo;t yet include the new Chest Freezer &amp; Basement Refrigerator plug &mdash; it went live today with only 0.00025 kWh recorded so far, too little to be meaningful. Newly found in the Sept 10 entity audit: four Sengled Zigbee outlets (Standup Freezer, Snowflakes, Hutch, Movie room) plus real metered kWh on Shed repeater and Sump pump v.2, replacing earlier live-wattage guesses. All confirmed as proper <code>device_class: power</code>/<code>energy</code> sensors. This house now has two separately-metered stand-alone freezers: this Standup Freezer (garage) and the Chest Freezer &amp; Basement Refrigerator circuit above.</div>
+      <div class="cat-note">Category total/avg above don&rsquo;t yet include the new Chest Freezer &amp; Basement Refrigerator plug &mdash; it went live Sept 10 with only 0.00025 kWh recorded so far, too little to be meaningful. Newly found in the Sept 10 entity audit: four Sengled Zigbee outlets (Standup Freezer, Snowflakes, Hutch, Movie room) plus real metered kWh on Shed repeater and Sump pump v.2, replacing earlier live-wattage guesses. All confirmed as proper <code>device_class: power</code>/<code>energy</code> sensors. This house now has two separately-metered stand-alone freezers: this Standup Freezer (garage) and the Chest Freezer &amp; Basement Refrigerator circuit above &mdash; and, per the new Emporia Vue project, that Chest Freezer/Basement Fridge circuit is still homeless (matched to no branch circuit) as of Sept 20, 2026.</div>
     </div>
 
   </div>
@@ -467,22 +569,36 @@
     <div class="gap-item">
       <span class="chip badge metered">info</span>
       <div class="txt">
-        <strong>New: Chest Freezer &amp; Basement Refrigerator plug, added Sept 10</strong>
-        <p>Renamed from &ldquo;Chest Freezer&rdquo; because one ZHA smart plug (<code>switch.chest_freezer</code>) actually meters a single downstream circuit covering three things: the chest freezer, the basement refrigerator, and a small PoE switch that powers the Shed Access Point and a Ubiquiti Bullet camera. None of the three can be metered separately &mdash; the sensor only sees their combined draw (17.7W live as of today). Neither the PoE switch, the Shed AP, nor the camera exist as their own HA entities. Once a full month of data accrues, a monthly kWh figure can be added here the same way the Garage Outlet and Shed repeater get theirs (30-day statistics delta) &mdash; there's no per-month reset sensor on this device, only a lifetime total that a &ldquo;Reset total energy&rdquo; button can zero out if you ever want a clean monthly cycle.</p>
+        <strong>New (Sept 20, 2026): 4 Emporia branch circuits still unidentified</strong>
+        <p>Circuit 5 (HA6), Circuit 7 (HA8), Circuit 10 (HA11 &mdash; has a genuine unexplained ~1.7kW spike around 6am on 9/18, sump pump and Living Room AC both ruled out), and Circuit 12 (HA13, currently off at the panel per the homeowner). See the Whole-home &amp; branch-circuit monitoring section above for the full table.</p>
       </div>
     </div>
     <div class="gap-item">
       <span class="chip badge gap">gap</span>
       <div class="txt">
-        <strong>Major loads have zero visibility</strong>
-        <p>Nothing in Home Assistant currently monitors HVAC/heat, water heater, laundry, range/oven, or an EV charger if you have one. Nationally these typically make up 60&ndash;80% of a home's electricity use, and are almost certainly most of the ~84% currently unaccounted for above (electric-only comparison &mdash; see The Gap).</p>
+        <strong>New (Sept 21, 2026): whole-home cross-check now on the page, but no verdict yet</strong>
+        <p>The Whole-home cross-check card above puts Emporia Main (153.02 kWh, Sept 1&ndash;21) next to NYSEG's last billed cycle (1,742 kWh, Sep 2026 bill) &mdash; deliberately as two separate figures, not merged, per the homeowner's Sept 21 decision, so any real discrepancy between the utility's meter and Emporia's stays visible rather than getting averaged away. The two windows don't line up yet (partial calendar month vs. a ~31-day billing cycle), so there's no discrepancy % to report yet &mdash; that's the next real step once a matching period exists.</p>
+      </div>
+    </div>
+    <div class="gap-item">
+      <span class="chip badge gap">gap</span>
+      <div class="txt">
+        <strong>New (Sept 21, 2026): a bigger unmonitored load than any single unidentified circuit</strong>
+        <p>Investigating a 3:45am spike on 9/21, the 16 tracked branch circuits together accounted for only &asymp;2.17 kW of a &asymp;4.08 kW peak at the mains &mdash; roughly half the panel's draw at that moment came from somewhere <strong>none</strong> of the 16 circuits cover, not just one of the 4 still-unidentified ones. Best guesses, unconfirmed: an AC compressor's outdoor unit or a well/sump pump on a breaker Emporia isn't clamped to. Treat as a separate open question from Circuit 10 (HA11)'s anomaly above, not the same mystery.</p>
+      </div>
+    </div>
+    <div class="gap-item">
+      <span class="chip badge gap">gap</span>
+      <div class="txt">
+        <strong>Major loads have zero visibility from individually-metered smart plugs</strong>
+        <p>Nothing on a dedicated smart plug/strip monitors HVAC/heat, water heater, laundry, or range/oven &mdash; nationally these typically make up 60&ndash;80% of a home's electricity use. As of Sept 17&ndash;20, 2026 the new Emporia Vue whole-home monitor now sees all of these on their own branch circuits (Living Room AC, Addition AC, Living Room Ecobee, Washing Machine, Kitchen Range are all confirmed circuits above) &mdash; it just isn't reconciled against the bill-based 84%/16% split yet, see the gap item above.</p>
       </div>
     </div>
     <div class="gap-item">
       <span class="chip badge estimated">warning</span>
       <div class="txt">
-        <strong>105-gallon tank equipment isn&rsquo;t power-monitored</strong>
-        <p>Its heater, CO2 solenoid, filter pump, and WRGB light have no real wattage sensors &mdash; only the WLED accent strip's rough current estimate. Every other tank in the house is metered per-outlet; this one's the outlier.</p>
+        <strong>105-gallon tank equipment isn&rsquo;t individually power-monitored</strong>
+        <p>Its heater, CO2 solenoid, filter pump, and WRGB light have no per-device wattage sensors &mdash; only the WLED accent strip's rough current estimate. As of Sept 17, 2026 the whole outlet group is at least visible in aggregate on Emporia Circuit 6 (HA7, &ldquo;Big Living Room&rdquo;), but individual equipment still can't be split out.</p>
       </div>
     </div>
     <div class="gap-item">
@@ -495,15 +611,15 @@
     <div class="gap-item">
       <span class="chip badge gap">gap</span>
       <div class="txt">
-        <strong>Gas heat is likely your single biggest cost, and it's invisible here by design</strong>
-        <p>Your NYSEG statement bills electricity and natural gas together. With 14 months on record, gas peaked at <strong>$287.83 in February</strong> (279 therms) and bottomed out around $51&ndash;$55/mo by late summer &mdash; a clean heating signature, over 5&times; winter-to-summer swing. No device on this page monitors gas, and none could: it's a separate delivery system entirely. Worth remembering when the &ldquo;84% unaccounted&rdquo; figure above looks alarming &mdash; some of that belongs to gas-adjacent electric loads (furnace blower, circulator pumps), but most of your winter bill swing is gas, not missing electric monitoring.</p>
+        <strong>Gas heat is likely your single biggest cost, and it's invisible to Emporia too</strong>
+        <p>Your NYSEG statement bills electricity and natural gas together. With 14 months on record, gas peaked at <strong>$287.83 in February</strong> (279 therms) and bottomed out around $51&ndash;$55/mo by late summer &mdash; a clean heating signature, over 5&times; winter-to-summer swing. Emporia Vue only monitors the electric panel, so gas remains fully outside any device on this page; it's a separate delivery system entirely.</p>
       </div>
     </div>
     <div class="gap-item">
-      <span class="chip badge gap">gap</span>
+      <span class="chip badge metered">info</span>
       <div class="txt">
-        <strong>Electricity itself peaks in summer, not winter &mdash; a second, separate load HA doesn't explain</strong>
-        <p>Monthly electric usage swings too: 865&ndash;1,247 kWh in the shoulder/winter months vs. 1,720&ndash;1,730 kWh in July and August. That's a ~2&times; summer jump with no obvious source among the devices already tracked here (aquariums, office gear, and accent lighting don't swing seasonally). The likely culprit is cooling &mdash; central AC, window units, or a pool/well pump &mdash; and it's currently one of the largest unmonitored loads in the house, alongside gas heat in winter.</p>
+        <strong>Resolved (Sept 17&ndash;20, 2026): the summer electric peak has a likely source</strong>
+        <p>Monthly electric usage swings from 865&ndash;1,247 kWh in the shoulder/winter months to 1,720&ndash;1,730 kWh in July and August &mdash; a ~2&times; summer jump that individually-metered plugs (aquariums, office gear, accent lighting) never explained. The Emporia Vue project now confirms two AC circuits &mdash; <strong>Living Room AC</strong> (Circuit 3/HA4) and <strong>Addition AC</strong> (Circuit 1/HA2) &mdash; as the likely source. Not yet quantified in dollars/kWh (that needs a full cooling-season billing cycle of Emporia data), but the circuits themselves are identified.</p>
       </div>
     </div>
     <div class="gap-item">
@@ -526,13 +642,15 @@
 <footer>
   <strong style="color:var(--ink-2)">Methodology &amp; caveats</strong>
   <ul>
-    <li>Home Assistant entities queried Sept 10, 2026. &ldquo;This month&rdquo; sensors reset on the calendar month, not NYSEG's ~10th-to-10th billing cycle, so early-month figures look small next to a full bill.</li>
-    <li>&ldquo;Estimated&rdquo; monthly kWh assumes a device's live wattage holds constant 24/7 &mdash; a reasonable approximation for always-on gear (UPS, network switch, repeaters), less so for anything on a schedule or photocell.</li>
+    <li>Home Assistant entities queried Sept 20, 2026 (device-level entities Sept 10; Emporia Vue branch-circuit entities Sept 20). &ldquo;This month&rdquo; sensors reset on the calendar month, not NYSEG's ~10th-to-10th billing cycle, so early-month figures look small next to a full bill.</li>
+    <li>&ldquo;Estimated&rdquo; monthly kWh assumes a device's live wattage holds constant 24/7 &mdash; a reasonable approximation for always-on gear (UPS, network switch, repeaters), less so for anything on a schedule or photocell, and not used for the Emporia branch circuits, which are shown as live-only readings, not monthly estimates.</li>
     <li>The $0.251/kWh blended rate used above is computed directly from 14 real NYSEG bill PDFs (electric cost &divide; kWh, each month), not a delivery-rate estimate. It ranged $0.2103/kWh (Sep &rsquo;26) to $0.3016/kWh (May &rsquo;26) as the variable supply rate moved &mdash; treat $60/mo as a central estimate, not exact.</li>
     <li>A Sept 10, 2026 entity audit turned up six Zigbee smart-plug sensors not previously on this page (Standup Freezer, Shed, Sump pump v.2, Hutch, Snowflakes, Movie room) &mdash; all verified as real <code>device_class: power</code>/<code>energy</code> sensors before being added, using 30-day statistics deltas rather than live-wattage guesses. The Standup Freezer was originally catalogued as &ldquo;Garage Zigbee Repeater Outlet&rdquo; until the homeowner confirmed its real identity later that same day &mdash; see &ldquo;Utility, garage &amp; seasonal plugs&rdquo; and the resolved item under Gaps.</li>
-    <li>NYSEG bills combine electricity and natural gas on one statement. Every figure above that compares to &ldquo;your bill&rdquo; uses the <strong>electric-only</strong> line item, never the combined total, since gas isn't something any device here monitors.</li>
+    <li><strong>New (Sept 17&ndash;20, 2026):</strong> an Emporia Vue whole-home energy monitor was installed, adding 3 mains legs (Mains_C unused) and 16 branch-circuit CT clamps, plus a synthetic &ldquo;Balance&rdquo; sensor for the unmonitored remainder. 11 of 16 circuits are confirmed as of this snapshot, always via a live toggle test or the homeowner's direct statement, never by wattage-coincidence guessing &mdash; several early guesses (a Circuit 13/freezer match, a Circuit 6/Standup-Freezer match, a Balance/second-AC-leg theory) were explicitly walked back once contradicted by cleaner evidence. Emporia's own CSV export numbers circuits 1&ndash;16; Home Assistant's entity numbering is offset by one (CSV Circuit N = HA Channel N+1) &mdash; this page follows the homeowner's own &ldquo;Circuit N (HA Channel N+1)&rdquo; notation throughout. Full identification history and the still-unidentified circuits are also tracked in the project's companion doc.</li>
+    <li><strong>New (Sept 21, 2026):</strong> added the Whole-home cross-check card, tracking Emporia's Main sensor and NYSEG's billed kWh as two independent figures rather than merging them &mdash; the goal is to surface any discrepancy between the utility's own meter and Emporia's, not let either supersede the other. Data for this update came via a handoff doc from a second Claude Code session that investigates Home Assistant data directly; it independently re-pulled all 16 circuit identifications and they matched this page exactly. That same handoff flagged a new, larger unmonitored-load event (a 3:45am spike where &asymp;half the mains draw came from outside all 16 tracked circuits combined) and a quiet snapshot of Circuit 10 (HA11) that does <strong>not</strong> resolve its open anomaly &mdash; see Gaps below for both.</li>
+    <li>NYSEG bills combine electricity and natural gas on one statement. Every figure above that compares to &ldquo;your bill&rdquo; uses the <strong>electric-only</strong> line item, never the combined total, since gas isn't something any device here monitors, Emporia Vue included.</li>
     <li>Bill trend reflects 14 detailed bill PDFs you uploaded (Jul 2025&ndash;Sep 2026), plus a Green Button interval-data export (pulled Sept 2026) that filled in Aug 2025's kWh (1,454, matching the $399.34 total on the Sep 2025 bill). Aug 2025's electric/gas cost split is still unknown with no PDF for that month &mdash; the blended $0.251/kWh rate above is unaffected by this, since it's cost-weighted across the 14 PDF months only.</li>
-    <li><strong>&ldquo;Monthly avg&rdquo; on each device card</strong> is pulled from real Home Assistant statistics, not a projection of the current MTD figure. Aquariums &amp; Living room use the average of the two most recent complete calendar months (Jul&ndash;Aug &rsquo;26) &mdash; the Aquarium strip's earlier months (Mar&ndash;May) were excluded after a data discontinuity turned up in its stats history around June, likely from a device re-pairing. Exterior lighting averages every complete month on record per sensor (varies 6&ndash;13 months). Office &amp; network reuses the existing 24/7 live-wattage estimate scaled to a full month. Utility/garage/seasonal keeps its existing last-30-day figure as the avg and adds a real Sept 1&ndash;10 MTD alongside it; the new Chest Freezer &amp; Basement Refrigerator plug isn't in that avg yet &mdash; see its Gaps note. All dollar figures use the $0.2505/kWh 14-bill blended rate.</li>
+    <li><strong>&ldquo;Monthly avg&rdquo; on each device card</strong> is pulled from real Home Assistant statistics, not a projection of the current MTD figure. Aquariums &amp; Living room use the average of the two most recent complete calendar months (Jul&ndash;Aug &rsquo;26) &mdash; the Aquarium strip's earlier months (Mar&ndash;May) were excluded after a data discontinuity turned up in its stats history around June, likely from a device re-pairing. Exterior lighting averages every complete month on record per sensor (varies 6&ndash;13 months). Office &amp; network reuses the existing 24/7 live-wattage estimate scaled to a full month. Utility/garage/seasonal keeps its existing last-30-day figure as the avg and adds a real Sept 1&ndash;10 MTD alongside it; the new Chest Freezer &amp; Basement Refrigerator plug isn't in that avg yet &mdash; see its Gaps note. All dollar figures use the $0.2505/kWh 14-bill blended rate. The Emporia Vue circuits above are excluded from this averaging entirely &mdash; they're shown as live snapshots only, pending a full month of statistics.</li>
   </ul>
 </footer>
 
