@@ -162,7 +162,7 @@
     <p>Monitored device power vs. NYSEG account &mdash; cost &amp; coverage snapshot</p>
   </div>
   <div class="meta">
-    <div>Snapshot as of <strong style="color:var(--ink-2)">Sept 22, 2026</strong> &middot; <strong style="color:var(--ink-2)">v0.7</strong></div>
+    <div>Snapshot as of <strong style="color:var(--ink-2)">Oct 6, 2026</strong> &middot; <strong style="color:var(--ink-2)">v0.8</strong></div>
     <div class="acct">Refreshed manually &mdash; ask Claude to update after each Green Button export</div>
   </div>
 </header>
@@ -343,7 +343,7 @@
           <div class="note" style="margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);"><strong style="color:var(--ink-2)">Implied cost: &asymp;$39.22</strong> &mdash; 186.50 kWh &times; $0.2103/kWh, NYSEG's most recent billed rate (Sep 2026) &mdash; illustrative only, see caveat below</div>
         </div>
         <div class="tile" style="box-shadow:none;border-color:var(--border);">
-          <div class="label">NYSEG &mdash; Aug 10&ndash;Sep 10, 2026</div>
+          <div class="label">NYSEG &mdash; Sep 2026 bill (&asymp;Aug 7&ndash;Sep 8)</div>
           <div class="value num">1,742 kWh</div>
           <div class="note">Last full billed cycle, from the Sep 2026 bill &middot; $366.34 electric-only &middot; $0.2103/kWh &middot; ends a week before Emporia's install date, so it can't be compared date-for-date with the Emporia window shown</div>
           <div class="note" style="margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);"><strong style="color:var(--ink-2)">Actual billed cost: $366.34</strong> &mdash; real dollars, from the bill itself, not an estimate</div>
@@ -358,6 +358,19 @@
       <p style="font-size:.78rem;color:var(--ink-mute);margin:10px 0 0;line-height:1.5;">
         A third Emporia sensor, <strong>Balance</strong>, wasn't included in this CSV export (no Balance column in the Sept 22 pull) &mdash; the last known figure (48.64 kWh this month, 268W live, from HA directly) is unchanged and not re-verified here.
       </p>
+
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border);">
+        <strong style="font-size:.86rem;">New (Oct 6, 2026): interval-level cross-check, Sept 19&ndash;Oct 4</strong>
+        <div class="hero-grid" style="grid-template-columns:repeat(3,1fr);margin:10px 0 4px;">
+          <div class="tile" style="box-shadow:none;border-color:var(--border);"><div class="label">Emporia Main</div><div class="value num">521.40 kWh</div><div class="note">16 full local days, from Home Assistant daily statistics</div></div>
+          <div class="tile" style="box-shadow:none;border-color:var(--border);"><div class="label">NYSEG hourly meter data</div><div class="value num">520.01 kWh</div><div class="note">Same 16 days, from the Green Button 60-minute export</div></div>
+          <div class="tile" style="box-shadow:none;border-color:var(--good);"><div class="label">Difference</div><div class="value num">+0.27%</div><div class="note">Emporia reads +1.39 kWh vs. NYSEG over the window</div></div>
+        </div>
+        <p style="font-size:.78rem;color:var(--ink-2);margin:10px 0 0;line-height:1.5;">Emporia and the utility meter agree to within about a third of a percent over the only stretch where both are complete. Daily values track within a few tenths of a kWh. This is a kWh check only: it says nothing about cost, and it covers about two weeks of mild-weather load, so it doesn&rsquo;t yet show how the two meters compare at summer cooling loads. Clamp relocations on the branch circuits don&rsquo;t affect this figure, which uses the Main sensor only.</p>
+        <details style="margin-top:8px;"><summary style="font-size:.78rem;color:var(--ink-mute);cursor:pointer;">Day-by-day values</summary>
+        <table class="circuit-table" style="margin-top:6px;"><thead><tr><th>Day</th><th class="num">Emporia kWh</th><th class="num">NYSEG kWh</th><th class="num">Diff</th></tr></thead><tbody><tr><td class="chid">Sep 19</td><td class="num">35.23</td><td class="num">35.11</td><td class="num">+0.12</td></tr><tr><td class="chid">Sep 20</td><td class="num">36.56</td><td class="num">36.43</td><td class="num">+0.13</td></tr><tr><td class="chid">Sep 21</td><td class="num">34.07</td><td class="num">33.98</td><td class="num">+0.09</td></tr><tr><td class="chid">Sep 22</td><td class="num">35.54</td><td class="num">35.38</td><td class="num">+0.16</td></tr><tr><td class="chid">Sep 23</td><td class="num">32.28</td><td class="num">32.23</td><td class="num">+0.05</td></tr><tr><td class="chid">Sep 24</td><td class="num">30.76</td><td class="num">30.64</td><td class="num">+0.11</td></tr><tr><td class="chid">Sep 25</td><td class="num">30.51</td><td class="num">30.38</td><td class="num">+0.13</td></tr><tr><td class="chid">Sep 26</td><td class="num">32.74</td><td class="num">32.66</td><td class="num">+0.08</td></tr><tr><td class="chid">Sep 27</td><td class="num">34.54</td><td class="num">34.45</td><td class="num">+0.09</td></tr><tr><td class="chid">Sep 28</td><td class="num">32.04</td><td class="num">32.02</td><td class="num">+0.01</td></tr><tr><td class="chid">Sep 29</td><td class="num">28.79</td><td class="num">28.67</td><td class="num">+0.12</td></tr><tr><td class="chid">Sep 30</td><td class="num">30.30</td><td class="num">30.30</td><td class="num">+0.00</td></tr><tr><td class="chid">Oct 1</td><td class="num">32.21</td><td class="num">32.12</td><td class="num">+0.09</td></tr><tr><td class="chid">Oct 2</td><td class="num">30.69</td><td class="num">30.56</td><td class="num">+0.12</td></tr><tr><td class="chid">Oct 3</td><td class="num">32.82</td><td class="num">32.79</td><td class="num">+0.03</td></tr><tr><td class="chid">Oct 4</td><td class="num">32.33</td><td class="num">32.28</td><td class="num">+0.05</td></tr></tbody></table></details>
+        <p style="font-size:.78rem;color:var(--ink-mute);margin:10px 0 0;line-height:1.5;">Billing-cycle boundaries, inferred from the same interval file: the cycle ending Jul 7 sums to 1,730.6 kWh (billed 1,730) and the cycle ending Aug 6 sums to 1,719.9 kWh (billed 1,720). The Sep 2026 bill (1,742 kWh) lines up with roughly Aug 7&ndash;Sep 8 (1,740.9 kWh), so the &ldquo;Aug 10&ndash;Sep 10&rdquo; label used elsewhere on this page was approximate. The exact service dates should be confirmed against the bill itself. The cycle now open (from about Sep 9) totals 928.8&ndash;972.5 kWh through Oct 4, depending on the start date.</p>
+      </div>
     </div>
   </div>
 
@@ -621,6 +634,13 @@
   </div>
   <div class="gaps-list">
     <div class="gap-item">
+      <span class="chip badge metered">info</span>
+      <div class="txt">
+        <strong>Updated (Oct 6, 2026): Emporia Main and NYSEG interval data agree within 0.3%</strong>
+        <p>Over Sept 19&ndash;Oct 4, Emporia Main read 521.40 kWh against 520.01 kWh from NYSEG's hourly Green Button export (+0.27%). This is the first real overlap check between the two whole-home figures, and it does not depend on waiting for the Oct 10 bill. It stays a short, mild-weather sample, so re-check once Emporia has a full billing cycle and again in cooling season. See the cross-check card above for day-by-day values.</p>
+      </div>
+    </div>
+    <div class="gap-item">
       <span class="chip badge estimated">warning</span>
       <div class="txt">
         <strong>New (Sept 22, 2026): active clamp-relocation project, chasing the 3:45am mystery load</strong>
@@ -714,6 +734,7 @@
     <li>NYSEG bills combine electricity and natural gas on one statement. Every figure above that compares to &ldquo;your bill&rdquo; uses the <strong>electric-only</strong> line item, never the combined total, since gas isn't something any device here monitors, Emporia Vue included.</li>
     <li>Bill trend reflects 14 detailed bill PDFs you uploaded (Jul 2025&ndash;Sep 2026), plus a Green Button interval-data export (pulled Sept 2026) that filled in Aug 2025's kWh (1,454, matching the $399.34 total on the Sep 2025 bill). Aug 2025's electric/gas cost split is still unknown with no PDF for that month &mdash; the blended $0.251/kWh rate above is unaffected by this, since it's cost-weighted across the 14 PDF months only.</li>
     <li><strong>&ldquo;Monthly avg&rdquo; on each device card</strong> is pulled from real Home Assistant statistics, not a projection of the current MTD figure. Aquariums &amp; Living room use the average of the two most recent complete calendar months (Jul&ndash;Aug &rsquo;26) &mdash; the Aquarium strip's earlier months (Mar&ndash;May) were excluded after a data discontinuity turned up in its stats history around June, likely from a device re-pairing. Exterior lighting averages every complete month on record per sensor (varies 6&ndash;13 months). Office &amp; network reuses the existing 24/7 live-wattage estimate scaled to a full month. Utility/garage/seasonal keeps its existing last-30-day figure as the avg and adds a real Sept 1&ndash;10 MTD alongside it; the new Chest Freezer &amp; Basement Refrigerator plug isn't in that avg yet &mdash; see its Gaps note. All dollar figures use the $0.2505/kWh 14-bill blended rate. The Emporia Vue circuits above are excluded from this averaging entirely &mdash; they're shown as live snapshots only, pending a full month of statistics.</li>
+    <li><strong>New (Oct 6, 2026):</strong> a Green Button 60-minute interval export (Jun 1&ndash;Oct 4, 2026, 3,024 hourly readings, no gaps or duplicates) was added. Unit scaling was verified from the file itself (powerOfTenMultiplier &minus;3, unit Wh, so raw value &divide; 1,000,000 = kWh). NYSEG days are local America/New_York calendar days summed from hourly readings. Emporia days are the daily change in the Main &ldquo;energy this month&rdquo; statistic in Home Assistant, which handles the Oct 1 reset. Sept 17 and 18 were left out because Emporia was only partly logging then, and Oct 5&ndash;6 were left out because NYSEG hadn&rsquo;t posted them yet.</li>
   </ul>
 </footer>
 
